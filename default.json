@@ -101,6 +101,17 @@
       "description": "GitHub Actions — group minor/patch",
       "matchManagers": ["github-actions"],
       "groupName": "github-actions"
+    },
+    {
+      "description": "Flutter SDK ships these Gradle plugins locally — no Maven artifact exists",
+      "matchManagers": ["gradle", "gradle-wrapper"],
+      "matchPackageNames": [
+        "dev.flutter.flutter-plugin-loader",
+        "dev.flutter.flutter-plugin-loader.gradle.plugin",
+        "dev.flutter.flutter-gradle-plugin",
+        "dev.flutter.flutter-gradle-plugin.gradle.plugin"
+      ],
+      "enabled": false
     }
   ]
 }
