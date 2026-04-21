@@ -1,0 +1,106 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":dependencyDashboard",
+    ":separateMajorReleases",
+    ":timezone(Europe/Berlin)",
+    "group:monorepos"
+  ],
+  "schedule": ["before 06:00 on monday"],
+  "labels": ["dependencies"],
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 4,
+  "rangeStrategy": "bump",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 06:00 on monday"]
+  },
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "schedule": ["at any time"]
+  },
+  "packageRules": [
+    {
+      "description": "Riverpod ecosystem moves in lockstep",
+      "matchPackageNames": [
+        "riverpod",
+        "flutter_riverpod",
+        "riverpod_annotation",
+        "riverpod_generator",
+        "riverpod_lint"
+      ],
+      "groupName": "riverpod"
+    },
+    {
+      "description": "Drift ORM ecosystem",
+      "matchPackageNames": ["drift", "drift_dev", "drift_flutter"],
+      "groupName": "drift"
+    },
+    {
+      "description": "ObjectBox ecosystem",
+      "matchPackageNames": [
+        "objectbox",
+        "objectbox_flutter_libs",
+        "objectbox_generator"
+      ],
+      "groupName": "objectbox"
+    },
+    {
+      "description": "slang i18n ecosystem",
+      "matchPackageNames": ["slang", "slang_flutter", "slang_build_runner"],
+      "groupName": "slang"
+    },
+    {
+      "description": "Freezed / JSON serialization code-gen",
+      "matchPackageNames": [
+        "freezed",
+        "freezed_annotation",
+        "json_annotation",
+        "json_serializable"
+      ],
+      "groupName": "freezed & json_serializable"
+    },
+    {
+      "description": "build_runner and its ecosystem",
+      "matchPackageNames": [
+        "build_runner",
+        "build_config",
+        "build_resolvers",
+        "build_web_compilers"
+      ],
+      "groupName": "build_runner"
+    },
+    {
+      "description": "Local notifications and timezone data must match",
+      "matchPackageNames": [
+        "flutter_local_notifications",
+        "timezone",
+        "flutter_timezone"
+      ],
+      "groupName": "local-notifications"
+    },
+    {
+      "description": "Dart/Flutter linters",
+      "matchPackageNames": ["flutter_lints", "lints", "custom_lint"],
+      "groupName": "lints"
+    },
+    {
+      "description": "Quarkus platform BOM drives all io.quarkus:* deps",
+      "matchDatasources": ["maven"],
+      "matchPackageNames": ["io.quarkus.platform:*", "io.quarkus:*"],
+      "groupName": "quarkus"
+    },
+    {
+      "description": "Major updates get their own PR + label",
+      "matchUpdateTypes": ["major"],
+      "labels": ["dependencies", "major-update"]
+    },
+    {
+      "description": "GitHub Actions — group minor/patch",
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
+    }
+  ]
+}
