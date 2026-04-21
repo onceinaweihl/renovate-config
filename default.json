@@ -106,10 +106,9 @@
       "description": "Flutter SDK ships these Gradle plugins locally — no Maven artifact exists",
       "matchManagers": ["gradle", "gradle-wrapper"],
       "matchPackageNames": [
-        "dev.flutter.flutter-plugin-loader",
-        "dev.flutter.flutter-plugin-loader.gradle.plugin",
-        "dev.flutter.flutter-gradle-plugin",
-        "dev.flutter.flutter-gradle-plugin.gradle.plugin"
+        "dev.flutter.flutter-plugin-loader:*",
+        "dev.flutter.flutter-gradle-plugin:*",
+        "/^dev\\.flutter\\./"
       ],
       "enabled": false
     }
