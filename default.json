@@ -13,6 +13,7 @@
   "prConcurrentLimit": 10,
   "prHourlyLimit": 4,
   "rangeStrategy": "bump",
+  "rebaseWhen": "behind-base-branch",
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["before 06:00 on monday"]
