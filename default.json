@@ -21,6 +21,25 @@
     "labels": ["security"],
     "schedule": ["at any time"]
   },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Track tool versions in GitHub Actions workflows annotated with `# renovate: datasource=... depName=...`",
+      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[a-z-]+))?\\s+[\\w_]+:\\s*['\"]?(?<currentValue>[^'\"\\s]+)['\"]?"
+      ]
+    },
+    {
+      "customType": "regex",
+      "description": "Track the version pin of this preset (`github>onceinaweihl/renovate-config#vX.Y.Z`) so consumer repos get a PR when a new tag is published",
+      "fileMatch": ["(^|/)renovate\\.json$"],
+      "matchStrings": [
+        "\"github>(?<depName>onceinaweihl/renovate-config)#(?<currentValue>v[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-tags"
+    }
+  ],
   "packageRules": [
     {
       "description": "Riverpod ecosystem moves in lockstep",
