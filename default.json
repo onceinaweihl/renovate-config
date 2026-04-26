@@ -14,6 +14,9 @@
   "prHourlyLimit": 4,
   "rangeStrategy": "bump",
   "rebaseWhen": "behind-base-branch",
+  "gitIgnoredAuthors": [
+    "41898282+github-actions[bot]@users.noreply.github.com"
+  ],
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["before 06:00 on monday"]
