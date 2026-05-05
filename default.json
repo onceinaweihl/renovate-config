@@ -134,6 +134,21 @@
         "/^dev\\.flutter\\./"
       ],
       "enabled": false
+    },
+    {
+      "description": "onceinaweihl org infrastructure (workflows, plugin, preset) — pulled out of the broad github-actions group so these low-risk tooling bumps don't get buried under third-party action updates",
+      "matchPackageNames": [
+        "onceinaweihl/onceinaweihl_workflows",
+        "onceinaweihl/claude-plugins",
+        "onceinaweihl/renovate-config"
+      ],
+      "groupName": "onceinaweihl tooling"
+    },
+    {
+      "description": "onceinaweihl_core touches app code (regen, audit findings) — keep its PR isolated and labelled so it's reviewed separately from infra bumps",
+      "matchPackageNames": ["onceinaweihl_core"],
+      "groupName": "onceinaweihl_core",
+      "labels": ["dependencies", "core-bump"]
     }
   ]
 }
