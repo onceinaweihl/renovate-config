@@ -96,13 +96,44 @@
       "groupName": "build_runner"
     },
     {
-      "description": "Local notifications and timezone data must match",
+      "description": "Local notifications + timezone must move together: flutter_local_notifications pins a specific timezone major (e.g. v17 needs timezone ^0.9, v21 needs timezone ^0.11). Bumping one without the other breaks `flutter pub get`.",
       "matchPackageNames": [
         "flutter_local_notifications",
         "timezone",
         "flutter_timezone"
       ],
       "groupName": "local-notifications"
+    },
+    {
+      "description": "Local notifications: defer major bumps to dependency-dashboard approval. The cluster needs a coordinated upgrade (e.g. flutter_local_notifications v17 -> v21 also needs timezone v0.11) which Renovate cannot auto-propose without breaking lockfile resolution. Maintainer ticks the dashboard checkbox when ready to migrate.",
+      "matchPackageNames": [
+        "flutter_local_notifications",
+        "timezone",
+        "flutter_timezone"
+      ],
+      "matchUpdateTypes": ["major"],
+      "groupName": "local-notifications (major)",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Win32 dependency cluster: share_plus, file_picker and package_info_plus all transitively pin a `win32` major. Bumping any of them in isolation when the others are still on the previous win32 major breaks `flutter pub get`. Group them so Renovate proposes a coordinated bump.",
+      "matchPackageNames": [
+        "share_plus",
+        "file_picker",
+        "package_info_plus"
+      ],
+      "groupName": "win32 cluster"
+    },
+    {
+      "description": "Win32 cluster: defer major bumps to dependency-dashboard approval. Same rationale as local-notifications above — the cluster's three packages pin a shared `win32` major and only one of them gets a major release at a time, so an unattended cluster PR would always fail resolution. Maintainer ticks the dashboard checkbox when all three have caught up.",
+      "matchPackageNames": [
+        "share_plus",
+        "file_picker",
+        "package_info_plus"
+      ],
+      "matchUpdateTypes": ["major"],
+      "groupName": "win32 cluster (major)",
+      "dependencyDashboardApproval": true
     },
     {
       "description": "Dart/Flutter linters",
