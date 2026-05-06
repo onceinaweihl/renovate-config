@@ -136,6 +136,13 @@
       "enabled": false
     },
     {
+      "description": "Skip pubspec.lock updates — Mend-hosted Renovate cannot auth the `flutter pub upgrade` git-clone subprocess for private git deps (e.g. onceinaweihl_core), so every lockfile update fails with `could not read Username for github.com`. Apps regenerate the lockfile via the regenerate-codegen workflow on each PR branch instead, which uses setup-core-auth and rewrites github.com URLs with the App token.",
+      "matchManagers": ["pub"],
+      "rangeStrategy": "bump",
+      "lockFileMaintenance": { "enabled": false },
+      "postUpdateOptions": []
+    },
+    {
       "description": "onceinaweihl org infrastructure (workflows, plugin, preset) — pulled out of the broad github-actions group so these low-risk tooling bumps don't get buried under third-party action updates",
       "matchPackageNames": [
         "onceinaweihl/onceinaweihl_workflows",
