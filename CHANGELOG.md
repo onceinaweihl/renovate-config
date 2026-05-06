@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.1](https://github.com/onceinaweihl/renovate-config/compare/v1.4.0...v1.4.1) (2026-05-06)
+
+
+### Bug Fixes
+
+* **pub:** disable Renovate bumps for the dart and flutter SDK constraints ([6b33380](https://github.com/onceinaweihl/renovate-config/commit/6b33380a94e9a4f38a33cbb5286c3a318bbacdfa))
+* **pub:** disable Renovate bumps for the dart and flutter SDK constraints ([421afd5](https://github.com/onceinaweihl/renovate-config/commit/421afd55b7007168adc2e3b7f2e17457450a4168))
+
 ## [1.4.0](https://github.com/onceinaweihl/renovate-config/compare/v1.3.1...v1.4.0) (2026-05-06)
 
 
