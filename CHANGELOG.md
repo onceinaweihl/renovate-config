@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/onceinaweihl/renovate-config/compare/v1.3.1...v1.4.0) (2026-05-06)
+
+
+### Features
+
+* defer cluster major bumps to dashboard approval ([3ee09c8](https://github.com/onceinaweihl/renovate-config/commit/3ee09c86472408da2bf97cda87c7d53387578947))
+* defer cluster major bumps to dashboard approval ([7dd444d](https://github.com/onceinaweihl/renovate-config/commit/7dd444d65ffa0b0e23a3fbfa37c42ba039e90dee))
+
 ## [1.3.1](https://github.com/onceinaweihl/renovate-config/compare/v1.3.0...v1.3.1) (2026-05-06)
 
 
