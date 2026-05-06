@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/onceinaweihl/renovate-config/compare/v1.3.0...v1.3.1) (2026-05-06)
+
+
+### Bug Fixes
+
+* **pub:** skip lockfile updates for the pub manager ([ac358a4](https://github.com/onceinaweihl/renovate-config/commit/ac358a4cb3d76c374b0e06e6267caab27a37068a))
+* **pub:** skip lockfile updates for the pub manager ([51619bf](https://github.com/onceinaweihl/renovate-config/commit/51619bfbec8ce6c550d5acecde3a848b6595860f))
+
 ## [1.3.0](https://github.com/onceinaweihl/renovate-config/compare/v1.2.0...v1.3.0) (2026-05-05)
 
 
