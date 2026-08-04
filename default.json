@@ -168,6 +168,16 @@
       "groupName": "github-actions"
     },
     {
+      "description": "Android Gradle Plugin: defer major bumps to dependency-dashboard approval. AGP 9 has built-in Kotlin and rejects the kotlin-android plugin; the Flutter plugin ecosystem (package_info_plus, file_picker, flutter_local_notifications, ...) still applies kotlin-android and/or omits compileSdk, so an unattended AGP major breaks every Android build (foxtrove rolled back to 8.13.2 once already). Tick the dashboard checkbox when the plugin ecosystem has caught up.",
+      "matchPackageNames": [
+        "com.android.application",
+        "com.android.library",
+        "com.android.tools.build:gradle"
+      ],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
       "description": "Flutter SDK ships these Gradle plugins locally — no Maven artifact exists",
       "matchManagers": ["gradle", "gradle-wrapper"],
       "matchPackageNames": [
