@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/onceinaweihl/renovate-config/compare/v1.4.1...v1.5.0) (2026-08-04)
+
+
+### Features
+
+* track claude-plugins per-plugin tag pins in workflows ([#13](https://github.com/onceinaweihl/renovate-config/issues/13)) ([718a646](https://github.com/onceinaweihl/renovate-config/commit/718a6461e27345c8420719557c1c67b2b237d377))
+
 ## [1.4.1](https://github.com/onceinaweihl/renovate-config/compare/v1.4.0...v1.4.1) (2026-05-06)
 
 
