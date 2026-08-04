@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/onceinaweihl/renovate-config/compare/v1.5.0...v1.6.0) (2026-08-04)
+
+
+### Features
+
+* gate AGP major bumps behind dashboard approval ([#15](https://github.com/onceinaweihl/renovate-config/issues/15)) ([0ce83bc](https://github.com/onceinaweihl/renovate-config/commit/0ce83bccb9fba0b98bd5bfb289f843e49299f6cb))
+
 ## [1.5.0](https://github.com/onceinaweihl/renovate-config/compare/v1.4.1...v1.5.0) (2026-08-04)
 
 
