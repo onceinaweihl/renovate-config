@@ -42,6 +42,17 @@
         "\"github>(?<depName>onceinaweihl/renovate-config)#(?<currentValue>v[^\"]+)\""
       ],
       "datasourceTemplate": "github-tags"
+    },
+    {
+      "customType": "regex",
+      "description": "Track claude-plugins checkout pins in workflows. The repo releases per-plugin tags (`onceinaweihl-<plugin>-vX.Y.Z`); regex versioning keeps the full tag in `ref:` and the compatibility group restricts updates to the same plugin's tag series. The annotated-comment manager above cannot express this (no extractVersion field), so this manager matches the checkout step shape directly.",
+      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "matchStrings": [
+        "repository: onceinaweihl/claude-plugins[\\s\\S]*?ref: ['\"]?(?<currentValue>onceinaweihl-[a-z-]+?-v\\d+\\.\\d+\\.\\d+)['\"]?"
+      ],
+      "depNameTemplate": "onceinaweihl/claude-plugins",
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "regex:^onceinaweihl-(?<compatibility>[a-z-]+?)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ],
   "packageRules": [
