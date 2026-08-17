@@ -28,10 +28,10 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Track tool versions in GitHub Actions workflows annotated with `# renovate: datasource=... depName=...`",
+      "description": "Track tool versions in GitHub Actions workflows annotated with `# renovate: datasource=... depName=...`. The annotated key may be any YAML key, hyphens included — `flutter_version:` on a reusable workflow input, `flutter-version:` on subosito/flutter-action.",
       "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[a-z-]+))?\\s+[\\w_]+:\\s*['\"]?(?<currentValue>[^'\"\\s]+)['\"]?"
+        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[a-z-]+))?\\s+[\\w.-]+:\\s*['\"]?(?<currentValue>[^'\"\\s]+)['\"]?"
       ]
     },
     {
