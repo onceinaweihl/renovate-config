@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/onceinaweihl/renovate-config/compare/v1.6.0...v1.6.1) (2026-08-17)
+
+
+### Bug Fixes
+
+* match hyphenated keys in the annotated version manager ([#17](https://github.com/onceinaweihl/renovate-config/issues/17)) ([ff8e0d3](https://github.com/onceinaweihl/renovate-config/commit/ff8e0d31d1bfef808c1a5db42eaa41b00167c311))
+
 ## [1.6.0](https://github.com/onceinaweihl/renovate-config/compare/v1.5.0...v1.6.0) (2026-08-04)
 
 
