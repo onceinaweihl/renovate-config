@@ -6,7 +6,8 @@
     ":dependencyDashboard",
     ":separateMajorReleases",
     ":timezone(Europe/Berlin)",
-    "group:monorepos"
+    "group:monorepos",
+    "helpers:pinGitHubActionDigests"
   ],
   "schedule": ["before 06:00 on monday"],
   "labels": ["dependencies"],
@@ -29,24 +30,15 @@
     {
       "customType": "regex",
       "description": "Track tool versions in GitHub Actions workflows annotated with `# renovate: datasource=... depName=...`. The annotated key may be any YAML key, hyphens included — `flutter_version:` on a reusable workflow input, `flutter-version:` on subosito/flutter-action.",
-      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[a-z-]+))?\\s+[\\w.-]+:\\s*['\"]?(?<currentValue>[^'\"\\s]+)['\"]?"
       ]
     },
     {
       "customType": "regex",
-      "description": "Track the version pin of this preset (`github>onceinaweihl/renovate-config#vX.Y.Z`) so consumer repos get a PR when a new tag is published",
-      "fileMatch": ["(^|/)renovate\\.json$"],
-      "matchStrings": [
-        "\"github>(?<depName>onceinaweihl/renovate-config)#(?<currentValue>v[^\"]+)\""
-      ],
-      "datasourceTemplate": "github-tags"
-    },
-    {
-      "customType": "regex",
       "description": "Track claude-plugins checkout pins in workflows. The repo releases per-plugin tags (`onceinaweihl-<plugin>-vX.Y.Z`); regex versioning keeps the full tag in `ref:` and the compatibility group restricts updates to the same plugin's tag series. The annotated-comment manager above cannot express this (no extractVersion field), so this manager matches the checkout step shape directly.",
-      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
       "matchStrings": [
         "repository: onceinaweihl/claude-plugins[\\s\\S]*?ref: ['\"]?(?<currentValue>onceinaweihl-[a-z-]+?-v\\d+\\.\\d+\\.\\d+)['\"]?"
       ],
@@ -163,7 +155,7 @@
       "labels": ["dependencies", "major-update"]
     },
     {
-      "description": "GitHub Actions — group minor/patch",
+      "description": "GitHub Actions — one group; majors still get their own PR via :separateMajorReleases",
       "matchManagers": ["github-actions"],
       "groupName": "github-actions"
     },
