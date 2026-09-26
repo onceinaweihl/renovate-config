@@ -1,0 +1,34 @@
+name: validate
+
+# Every app repo extends default.json; a broken or deprecated option here
+# silently degrades Renovate everywhere. Validate it (and this repo's own
+# renovate.json) the way Renovate itself reads them, with --strict so a
+# needed config migration fails the check instead of only warning.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  renovate-config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      # renovate: datasource=npm depName=renovate
+      RENOVATE_VERSION: 44.115.10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - name: renovate-config-validator
+        run: >-
+          npx --yes --package "renovate@${RENOVATE_VERSION}" --
+          renovate-config-validator --strict --no-global default.json renovate.json
