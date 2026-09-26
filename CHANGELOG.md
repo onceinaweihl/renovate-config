@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/onceinaweihl/renovate-config/compare/v1.6.1...v1.7.0) (2026-09-26)
+
+
+### Features
+
+* pin GitHub Actions to commit digests in every repo ([051d79a](https://github.com/onceinaweihl/renovate-config/commit/051d79a5da0e23ca40557beb87ebb7a481b244b6))
+
 ## [1.6.1](https://github.com/onceinaweihl/renovate-config/compare/v1.6.0...v1.6.1) (2026-08-17)
 
 
